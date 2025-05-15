@@ -1,4 +1,4 @@
-kfrom flask import Flask, request
+from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import os
 
@@ -13,7 +13,7 @@ def sms_reply():
     resp = MessagingResponse()
     resp.message("Thanks for your message!")
 
-    # Log the TwiML response for verification
+    # Log the TwiML response to verify it's correct
     print("🔸 Responding with TwiML:", str(resp))
 
     return str(resp), 200
