@@ -4,18 +4,20 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return "✅ Flask TextBlast is running."
+
 @app.route('/sms-reply', methods=['POST'])
 def sms_reply():
     print("✅ Received POST from Twilio at /sms-reply")
     print("🔹 Form data:", request.form)
 
-    # Create Twilio XML response
+    # Twilio response
     resp = MessagingResponse()
     resp.message("Thanks for your message!")
 
-    # Log the TwiML response for verification
     print("🔸 Responding with TwiML:", str(resp))
-
     return str(resp), 200
 
 if __name__ == '__main__':
