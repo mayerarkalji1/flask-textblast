@@ -9,11 +9,11 @@ def sms_reply():
     print("✅ Received POST from Twilio at /sms-reply")
     print("🔹 Form data:", request.form)
 
-    # Create the Twilio response
+    # Create Twilio XML response
     resp = MessagingResponse()
     resp.message("Thanks for your message!")
 
-    # Log the TwiML response to verify it's correct
+    # Log the TwiML response for verification
     print("🔸 Responding with TwiML:", str(resp))
 
     return str(resp), 200
